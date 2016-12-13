@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head>
+  <b:include data='blog' name='all-head-content' />
+  <title>
+    <b:if cond='data:blog.pageType == &quot;index&quot;'>
+      <data:blog.pageTitle/>
+      <b:else/>
+      <b:if cond='data:blog.pageType != &quot;error_page&quot;'>
+        <data:blog.pageName/> |
+        <data:blog.title/>
+        <b:else/> Page Not Found |
+        <data:blog.title/>
+      </b:if>
+    </b:if>
+  </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <b:skin>
+    <![CDATA[ 
+        body#layout #widgetID { 
+            The Properties For Widget In Layout Page Goes Here 
+        } 
+
+        body { 
+            background:white; color:black; 
+        }
+
+        /* ---------- HEADER STYLES ---------- */
+
+        header {
+            position: fixed;
+            background-color: #fff;
+            width: 100vw;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 0.5vh 0;
+
+                  -webkit-transform:translateZ(1);
+                -moz-transform:translateZ(1);
+                -o-transform:translateZ(1);
+                transform:translateZ(1);
+        }
+
+        .titles {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+        }
+
+        .titles img {
+            height: 80%;
+        }
+
+        #nav-trigger {
+            display: none;
+        }
+
+        .nav-trigger-open {
+            font-size: 24px;
+            padding: 0;
+            color: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+
+        header nav {
+            box-shadow: -1px 0px 300px rgba(0, 0, 0, 0.6);
+            display: none;
+            width: 70%;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background-color: #fff;
+            overflow-y: scroll;
+
+                  -webkit-transform:translateZ(5);
+                -moz-transform:translateZ(5);
+                -o-transform:translateZ(5);
+                transform:translateZ(5);
+        }
+
+        header nav i.fa-times {
+            position: absolute;
+            z-index: 999;
+            margin: 10px;
+            font-size: 24px;
+        }
+
+        .menu {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-align: center;
+            padding-top: 6vh;
+        }
+
+        .menu-item {
+            margin: 7vh auto;
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .menu-item a {
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        #about-submenu-trigger {
+            display: none;
+        }
+
+        .submenu-wrapper {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            opacity: 1;
+          display: none;
+        }
+
+        .submenu {
+          padding: 0;
+          list-style-type: none;
+        }
+
+        .submenu-item {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 2vh auto;
+        }
+
+        .submenu-item a {
+            color: #000;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /******* Open menus ******/
+
+        #nav-trigger:checked ~ nav {
+            display: block;
+        }
+
+        #about-submenu-trigger:checked ~ .submenu-wrapper {
+            display: block;
+        }
+
+        /****** End Open menus section ******/
+
+        @media only screen and (min-width: 800px) {
+            header {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .titles img {
+                margin: 0 2vh;
+            }
+
+            .nav-trigger-open {
+                display: none;
+            }
+
+            header nav {
+                display: inline;
+                min-height: 0;
+                position: static;
+                background-color: transparent;
+                box-shadow: none;
+            }
+
+            header nav i.fa-times {
+                display: none;
+            }
+
+            .menu {
+                padding: 0 2vh;
+                height: 10vh;
+                display: flex;
+                right: 0;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+         .menu-item {
+             margin: 0;
+             margin-left: 30px;
+             display: flex;
+             font-size: 18px;
+             flex-direction: column;
+             align-items:  center;
+         }
+
+         .menu-item a {
+             font-size: 18px;
+         }
+
+         .submenu-wrapper {
+            position: absolute;
+            padding: 10px;
+            width: 120px;
+            height: 120px;
+         }
+
+         .submenu {
+            position: relative;
+            margin-top: 18px;
+            padding-top: 0;
+            background-color: #fff;
+            flex-direction: column;
+            width: 120px;
+            display: block;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            /*right: -58px;*/
+         }
+
+         /* Display submenu on hover */
+
+         .menu-button:hover + .submenu-wrapper{
+            display: block;
+
+                  -webkit-transform:translateZ(200px);
+                -moz-transform:translateZ(200px);
+                -o-transform:translateZ(200px);
+                transform:translateZ(200px);
+         }
+
+         .submenu-wrapper:hover{
+            display: block;
+
+                  -webkit-transform:translateZ(200px);
+                -moz-transform:translateZ(200px);
+                -o-transform:translateZ(200px);
+                transform:translateZ(200px);
+         }
+
+         /* Submenu styles */
+         .submenu-item {
+             font-size: 16px;
+             /*text-align: right;*/
+         }
+        }
+
+        /* ---------- MAIN STYLES ---------- */
+
+        main {
+            padding: 11vh 0 0;
+            display: flex;
+            flex-direction: column;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+    ]]>
+  </b:skin>
+</head>
+
+<body>
+  <header>
+    <div class="titles">
+      <img src="../assets/images/logo-main.png" alt="Joycelyn Choo, Violinist | Teacher" />
+    </div>
+    <input type="checkbox" id="nav-trigger" />
+    <label for="nav-trigger" class="nav-trigger-open">
+      <i class="fa fa-bars"></i>
+    </label>
+    <nav>
+      <label for="nav-trigger" class="nav-trigger-close">
+        <i class="fa fa-times"></i>
+      </label>
+      <ul class="menu">
+        <li class="menu-item">
+          <a href="../home">Home</a>
+        </li>
+        <li class="menu-item">
+          <input type="checkbox" id="about-submenu-trigger" />
+          <label class="menu-button" for="about-submenu-trigger">About
+            <i class="fa fa-angle-down"></i>
+          </label>
+          <div class="submenu-wrapper">
+            <ul class="submenu">
+              <li class="submenu-item">
+                <a href="../bio">Bio</a>
+              </li>
+              <li class="submenu-item">
+                <a href="../teaching-philosophy">Teaching Philosophy</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu-item">
+          <a href="../teaching/">Teaching</a>
+        </li>
+        <li class="menu-item">
+          <a href="../performing">Performing</a>
+        </li>
+        <li class="menu-item">
+          <a href="../blog">Blog</a>
+        </li>
+        <li class="menu-item">
+          <a href="../contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+      <div class="column-left">
+        <b:section class='main' id='main' preferred='yes' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+          </b:widget>
+        </b:section>
+      </div>
+      <div class="column-right">
+        <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelement='yes'>
+        </b:section>
+      </div>
+  </main>
+</body>
+
+</html>

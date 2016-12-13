@@ -1,0 +1,604 @@
+/* ----------------------------------------------------------------
+          INFO
+---------------------------------------------------------------- */
+/*
+* Color directory
+* blue-grey (lighter shade): #90a4ae
+* blue-grey (darker shade): #607d8b
+*
+* hover effects:
+* transition: 0.2s linear
+* 
+*/
+
+
+
+/* ----------------------------------------------------------------
+          GLOBAL STYLES
+---------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+  color: #607d8b;
+  text-decoration: none;
+}
+
+.btn-default {
+  background-color: #90a4ae;
+  border-width: 0;
+  border-radius: 2px;
+  color: #FFF;
+  transition: background 0.3s linear; 
+}
+
+.btn-default:hover {
+  background-color: #607d8b;
+}
+
+.btn-default:hover, 
+.nav-trigger-open,
+.nav-trigger-close,
+.menu-button,
+form input[type="radio"] + label:hover,
+form input[type="checkbox"] + label:hover {
+  cursor: pointer;
+}
+
+.menu-select:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* ----------------------------------------------------------------
+          HEADER STYLES
+---------------------------------------------------------------- */
+
+
+
+header {
+  position: fixed;
+  background-color: #fff;
+  width: 100vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5vh 0;
+
+      -webkit-transform:translateZ(1);
+      -moz-transform:translateZ(1);
+      -o-transform:translateZ(1);
+      transform:translateZ(1);
+}
+
+.titles {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.titles img {
+  height: 80%;
+}
+
+#nav-trigger {
+  display: none;
+}
+
+.nav-trigger-open {
+  font-size: 24px;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+header nav {
+  box-shadow: -1px 0px 300px rgba(0, 0, 0, 0.6);
+  display: none;
+  width: 70%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #fff;
+  overflow-y: scroll;
+
+      -webkit-transform:translateZ(5);
+      -moz-transform:translateZ(5);
+      -o-transform:translateZ(5);
+      transform:translateZ(5);
+}
+
+header nav .nav-trigger-close {
+  position: absolute;
+  z-index: 999;
+  margin: 5px;
+  font-size: 24px;
+}
+
+/* --- Nav Trigger Colors / Hover effects --- */
+.nav-trigger-close svg {
+  fill: rgba(0, 0, 0, 0.6);
+  transition: fill 0.2s linear;
+}
+
+.nav-trigger-close:hover svg {
+  fill: rgba(0, 0, 0, 0.8);
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  padding-top: 6vh;
+}
+
+.menu-item {
+  margin: 7vh auto;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menu-item a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menu-select {
+  color: rgba(0, 0, 0, 0.6);
+  transition: color 0.2s linear;
+}
+
+#about-submenu-trigger {
+  display: none;
+}
+
+.submenu-wrapper {
+  margin: 0;
+  opacity: 1;
+  display: none;
+}
+
+.submenu {
+  padding: 10px 0 0;
+  list-style-type: none;
+}
+
+.submenu-item {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 2vh auto;
+}
+
+.submenu-item a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* ---------- Open menus ---------- */
+
+#nav-trigger:checked ~ nav {
+  display: block;
+}
+
+#about-submenu-trigger:checked ~ .submenu-wrapper {
+  display: block;
+}
+
+/* ---------- End open menus section ---------- */
+
+
+@media only screen and (min-width: 800px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .titles img {
+    margin: 0 2vh;
+  }
+
+  .nav-trigger-open {
+    display: none;
+  }
+
+  header nav {
+    display: inline;
+    min-height: 0;
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  header nav .nav-trigger-close {
+    display: none;
+  }
+
+  .menu {
+    padding: 0 2vh;
+    height: 10vh;
+    display: flex;
+    right: 0;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .menu-item {
+    margin: 0;
+    margin-left: 30px;
+    display: flex;
+    font-size: 18px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-item a {
+    font-size: 18px;
+  }
+
+  .submenu-wrapper {
+    position: absolute;
+    padding: 10px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .submenu {
+    position: relative;
+    margin-top: 18px;
+    padding-top: 0;
+    background-color: #fff;
+    flex-direction: column;
+    width: 120px;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    left: -15px;
+  }
+
+  /* ---------- Display submenu on hover ---------- */
+
+  .menu-button:hover + .submenu-wrapper {
+    display: block;
+
+        -webkit-transform:translateZ(200);
+        -moz-transform:translateZ(200);
+        -o-transform:translateZ(200);
+        transform:translateZ(200);
+  }
+
+  .submenu-wrapper:hover {
+    display: block;
+
+        -webkit-transform:translateZ(200);
+        -moz-transform:translateZ(200);
+        -o-transform:translateZ(200);
+        transform:translateZ(200);
+  }
+
+  /* ---------- Submenu styles ---------- */
+
+  .submenu-item {
+    font-size: 16px;
+    /*text-align: right;*/
+  }
+}
+
+
+
+/* ----------------------------------------------------------------
+          MAIN STYLES
+---------------------------------------------------------------- */
+
+
+main {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: none;
+}
+
+main section {
+  padding: 11vh 0 0;
+  min-height: 89vh;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
+}
+
+/* --- Display / hide forms based on whether they are chosen or not --- */
+
+main .form-section:not(:target) {
+  display: none;
+}
+
+/* --- Form styling --- */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
+}
+
+input[type="text"], 
+input[type="email"] {
+  width: 90%;
+}
+
+input[type="number"] {
+  width: 40%;
+}
+
+textarea {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
+  width: 90%;
+}
+
+button[type="submit"] {
+  width: 60%;
+  align-self: center;
+  margin: 20px 0;
+  height: 10vh;
+}
+
+.form-choices h2 {
+  padding-top: 30%;
+  text-align: center;
+}
+
+.form-choices button {
+  width: 70%;
+  align-self: center;
+  margin: 5px auto;
+}
+
+.form-choices a {
+  color: #FFF;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  padding: 15px;
+}
+
+.radio-buttons {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+input[type="radio"], 
+input[type="checkbox"] {
+  border: none;
+  display: none;
+}
+
+form input[type="radio"] + label,
+.day-checkbox + label {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  transition: background 0.1s linear;
+}
+
+input[type="checkbox"] + label.day-label {
+  width: 40%;
+  border-radius: 2px;
+  text-align: center;
+}
+
+input[type="radio"] + label.left-label {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+input[type="radio"] + label.center-label {
+  border-radius: 0;
+}
+
+input[type="radio"] + label.right-label {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.day {
+  margin: 10px 0;
+}
+
+.days-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.days-list li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.time {
+  margin-left: 5px;
+  border-radius: 2px;
+}
+
+.time label {
+  padding: 0 10px;
+}
+
+.switch li {
+  width: 40%;
+}
+
+.switch li label {
+  display: flex;
+  justify-content: center;
+}
+
+#trial-lesson {
+  border-width: 0 0 1px 0;
+}
+
+#trial-lesson:focus {
+  outline: none;
+}
+
+/* ---------- Form global styles ---------- */
+
+.required {
+  font-weight: bold;
+}
+
+form input[type="radio"]:not( :checked ) + label:hover,
+form input[type="checkbox"]:not( :checked ) + label:hover {
+  background-color: #90a4ae;
+  color: #FFF;
+}
+
+form input[type="radio"]:checked + label, 
+form input[type="checkbox"]:checked + label {
+  background-color: #607d8b;
+  color: #FFF;
+}
+
+/* ---------- Deactive label state ---------- */
+
+
+.time input[disabled] + label {
+  opacity: 0.3;
+}
+
+.time input[disabled] + label:hover {
+  cursor: default;
+  background-color: #FFF !important;
+  color: #000 !important;
+}
+
+
+/* ---------- Main desktop media ---------- */
+
+@media only screen and (min-width: 800px) {
+  main section {
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-choices h2 {
+    padding-top: 10%;
+  }
+
+  form {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  input[type="text"], input[type="email"], textarea {
+    width: 100%;
+  }
+
+  .half {
+    width: 50%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  fieldset {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .switch, .day {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  .days-list {
+    align-items: center;
+  }
+
+  .day-label {
+    flex-grow: 1;
+  }
+}
+
+
+
+/* ----------------------------------------------------------------
+          FOOTER STYLES
+---------------------------------------------------------------- */
+
+
+
+footer {
+  margin: 4vh;
+}
+
+footer nav.media-links ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+footer nav.media-links ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+footer nav.media-links ul li a {
+  font-size: 0;
+  color: #fff;
+}
+
+footer nav.media-links ul li a i {
+  font-size: 22px;
+}
+
+footer div.footer-text {
+  text-align: center;
+  margin: 15px 0;
+}
+
+footer div.footer-text h6 {
+  margin: 0;
+}
+
+@media only screen and (min-width: 800px) {
+  footer {
+    margin: 3vh 0;
+  }
+
+  footer nav.media-links ul li {
+    margin: 0 10px;
+  }
+}
