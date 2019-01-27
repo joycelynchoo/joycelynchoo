@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Joycelyn Choo | Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300" rel="stylesheet">
+	<link rel="stylesheet" href="assets/normalize.css" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+	<ul class="bg-photos">
+		<li class="bg-image-1"></li>
+		<li class="bg-image-2 hidden"></li>
+		<li class="bg-image-3 hidden"></li>
+		<li class="bg-image-4 hidden"></li>
+	</ul>
+
+	<header>
+		<div class="titles">
+			<img src="assets/images/logo.png" alt="Joycelyn Choo, Violinist | Teacher" />
+		</div>
+		<input type="checkbox" id="nav-trigger">
+		<label for="nav-trigger" class="nav-trigger-open">
+			<i class="fa fa-bars"></i>
+		</label>
+		<nav>
+			<label for="nav-trigger" class="nav-trigger-close">
+				<svg style="width:30px;height:30px" viewBox="0 0 24 24">
+				    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+				</svg>
+			</label>
+			<ul class="menu">
+				<li class="menu-item">
+					<a class="menu-select" href=".">Home</a>
+				</li>
+				<li class="menu-item">
+					<input type="checkbox" id="about-submenu-trigger">
+					<label class="menu-button menu-select" for="about-submenu-trigger">About
+						<i class="fa fa-angle-down"></i>
+					</label>
+					<div class="submenu-wrapper">
+						<ul class="submenu">
+							<li class="submenu-item">
+								<a href="bio" class="menu-select">Bio</a>
+							</li>
+							<li class="submenu-item">
+								<a href="teaching-philosophy" class="menu-select">Teaching Philosophy</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="menu-item">
+					<a href="teaching" class="menu-select">Teaching</a>
+				</li>
+				<li class="menu-item">
+					<a href="performing" class="menu-select">Performing</a>
+				</li>
+<!-- 				<li class="menu-item">
+					<a href="blog" class="menu-select">Blog</a>
+				</li> -->
+				<li class="menu-item">
+					<a href="contact" class="menu-select">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<footer>
+		<nav class="media-links">
+			<ul>
+				<li>
+					<a href="//www.facebook.com/Joycelynchooviolin/" target="_blank">
+						<i class="fa fa-facebook"></i>
+					</a>
+				</li>
+				<li>
+					<a href="//www.linkedin.com/in/joycelyn-choo-a9b24a123" target="_blank">
+						<i class="fa fa-linkedin"></i>
+					</a>
+				</li>
+				<li>
+					<a href="//www.yelp.com/biz/joycelyn-choo-walnut" target="_blank">
+						<i class="fa fa-yelp"></i>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="footer-text">
+			<h6>joycelyn.a.choo@gmail.com | 714•393•6338</h6>
+			<h6>Website by Benjamin Johnson</h6>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>
